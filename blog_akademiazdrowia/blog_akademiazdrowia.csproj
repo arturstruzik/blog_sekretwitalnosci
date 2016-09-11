@@ -43,6 +43,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -158,6 +160,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Articles.cs">
+      <DependentUpon>sekretwitalnosciDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Comments.cs">
+      <DependentUpon>sekretwitalnosciDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -168,9 +176,28 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sekretwitalnosciDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sekretwitalnosciDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sekretwitalnosciDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sekretwitalnosciDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sekretwitalnosciDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sekretwitalnosciDBModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-blog_akademiazdrowia-20160909121537.mdf" />
+    <Content Include="App_Data\aspnet-blog_akademiazdrowia-20160909121537_log.ldf">
+      <DependentUpon>aspnet-blog_akademiazdrowia-20160909121537.mdf</DependentUpon>
+    </Content>
     <Content Include="Assets\img\facebook_icon.png" />
     <Content Include="Assets\img\instagram_icon.png" />
     <Content Include="Assets\img\logo_horizontal_small.png" />
@@ -232,16 +259,34 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <EntityDeploy Include="sekretwitalnosciDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>sekretwitalnosciDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="sekretwitalnosciDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>sekretwitalnosciDBModel.edmx</DependentUpon>
+      <LastGenOutput>sekretwitalnosciDBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="sekretwitalnosciDBModel.edmx.diagram">
+      <DependentUpon>sekretwitalnosciDBModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="sekretwitalnosciDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>sekretwitalnosciDBModel.edmx</DependentUpon>
+      <LastGenOutput>sekretwitalnosciDBModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
