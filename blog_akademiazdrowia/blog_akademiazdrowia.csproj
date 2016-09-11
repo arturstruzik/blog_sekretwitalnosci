@@ -167,6 +167,7 @@
       <DependentUpon>sekretwitalnosciDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -276,6 +277,11 @@
       <DependentUpon>sekretwitalnosciDBModel.edmx</DependentUpon>
       <LastGenOutput>sekretwitalnosciDBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\Articles\Create.cshtml" />
+    <Content Include="Views\Articles\Delete.cshtml" />
+    <Content Include="Views\Articles\Details.cshtml" />
+    <Content Include="Views\Articles\Edit.cshtml" />
+    <Content Include="Views\Articles\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
