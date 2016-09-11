@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akademia Zdrowia</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="http://connect.facebook.net/pl_PL/all.js#xfbml=1"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img class="navbar-brand" src="~/Assets/img/new_logo.png" alt="Jadwiga Struzik portret" />
+                <div class="navbar-brand navbar-brand-header-link">
+                    <a href="">SPECJALISTA ZYWIENIA<br />Dietetyk Jadwiga Struzik</a>
+                </div>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li id="nav-a"><a class="navbar-static-top-link" href="/">Start</a></li>
+                    <li id="nav-b"><a class="navbar-static-top-link" href="/Home/Contact">KONTAKT</a></li>
+                    <li id="nav-c"><a class="navbar-static-top-link" href="/Home/About">NEWSLETTER</a></li>
+                </ul>
+                <fb:like id="fb" href="https://www.facebook.com/MensHealthPolska/?fref=ts" show_faces="false" width="50" layout="button_count"></fb:like>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="container container-body">
+        
+        <div class="navbar-fixed-top">
+            <button type="button" class="navbar-button icon-search">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+            @Html.TextBox("search", "szukana fraza", new { @class = "search-textBox" })
+            <img src="~/Assets/img/logo_horizontal_small.png" alt="Sekret Witalności logo" />
+            <ul>
+                <li>@Html.ActionLink("TCM", "Index", "Home")</li>
+                <li>@Html.ActionLink("Matka&dziecko", "Index", "Home")</li>
+                <li>@Html.ActionLink("Na zdrowie", "Index", "Home")</li>
+                <li>@Html.ActionLink("Przepisy", "Index", "Home")</li>
+                <li>@Html.ActionLink("Książki", "Index", "Home")</li>
+            </ul>
+            <button type="button" class="navbar-button icon-facebook">
+                <img src="~/Assets/img/facebook_icon.png" alt="Facebook funpage" />
+            </button>
+            <button type="button" class="navbar-button icon-instagram">
+                <img src="~/Assets/img/instagram_icon.png" alt="Instagram funpage" />
+            </button>
+        </div>
+        <div class="body-content">
+            @RenderBody()
+        </div>
+        <hr />
+        <footer>
+            
+        </footer>
+    </div>
+    
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/site.js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
