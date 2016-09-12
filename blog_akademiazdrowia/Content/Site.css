@@ -282,3 +282,14 @@ footer {
     padding: 0 0 0 0;
     min-height: 150px;
 }
+
+input[type="file"]{
+    border-radius: 0 !important;
+    margin-top:7px;
+    margin-left:14px;
+}
+
+input#Title, input#Tags{
+    width: 100% !important;
+    max-width:100% !important;
+}
