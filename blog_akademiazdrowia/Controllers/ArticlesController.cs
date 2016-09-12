@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using blog_akademiazdrowia;
 using System.IO;
+using System.Drawing;
+using blog_akademiazdrowia.Assets.Sorces;
 
 namespace blog_akademiazdrowia.Controllers
 {
@@ -68,6 +70,8 @@ namespace blog_akademiazdrowia.Controllers
                     fileNameList.Add(filepath);
                 }
             }
+            
+            ImageHelper.PrepareImage(fileNameList[1], articles.LayoutType);
 
             if (ModelState.IsValid)
             {

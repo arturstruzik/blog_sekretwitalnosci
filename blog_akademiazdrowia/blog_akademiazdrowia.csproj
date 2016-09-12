@@ -163,6 +163,7 @@
     <Compile Include="Articles.cs">
       <DependentUpon>sekretwitalnosciDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Assets\Sorces\ImageHelper.cs" />
     <Compile Include="Comments.cs">
       <DependentUpon>sekretwitalnosciDBModel.tt</DependentUpon>
     </Compile>
