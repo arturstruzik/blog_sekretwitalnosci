@@ -105,6 +105,6 @@ E:\Projekty_2016\blog_sekretwitalnosci\blog_akademiazdrowia\bin\Microsoft.Owin.S
 E:\Projekty_2016\blog_sekretwitalnosci\blog_akademiazdrowia\bin\Microsoft.Owin.Security.Google.xml
 E:\Projekty_2016\blog_sekretwitalnosci\blog_akademiazdrowia\bin\Microsoft.Owin.Security.Twitter.xml
 E:\Projekty_2016\blog_sekretwitalnosci\blog_akademiazdrowia\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-E:\Projekty_2016\blog_sekretwitalnosci\blog_akademiazdrowia\obj\Debug\blog_akademiazdrowia.csprojResolveAssemblyReference.cache
 E:\Projekty_2016\blog_sekretwitalnosci\blog_akademiazdrowia\obj\Debug\blog_akademiazdrowia.dll
 E:\Projekty_2016\blog_sekretwitalnosci\blog_akademiazdrowia\obj\Debug\blog_akademiazdrowia.pdb
+E:\Projekty_2016\blog_sekretwitalnosci\blog_akademiazdrowia\obj\Debug\blog_akademiazdrowia.csprojResolveAssemblyReference.cache

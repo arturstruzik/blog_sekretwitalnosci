@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using blog_akademiazdrowia;
+using System.IO;
 
 namespace blog_akademiazdrowia.Controllers
 {
@@ -38,6 +39,8 @@ namespace blog_akademiazdrowia.Controllers
         // GET: Articles/Create
         public ActionResult Create()
         {
+            ViewBag.LayoutType = new List<string>() { "s-picture", "l-picture", "xxl-picture" };
+            ViewBag.Categories = new List<string>() { "TCM", "Matka&Dziecko", "Na zdrowie", "Przepisy", "Książki" };
             return View();
         }
 
@@ -46,10 +49,31 @@ namespace blog_akademiazdrowia.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ArticleId,LayoutType,Category,Title,ShortContent,Content,ImgPath,ImgMiniPath,Tags,Date")] Articles articles)
+        [ValidateInput(false)]
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Create([Bind(Include = "LayoutType,Category,Title,ShortContent,Content,ImgPath,ImgMiniPath,Tags")] Articles articles, IEnumerable<HttpPostedFileBase> files)
         {
+            var filepath = String.Empty;
+            var fileNameList = new List<string>();
+
+            foreach (var file in files)
+            {
+                if (null != file && file.ContentLength > 0)
+                {
+                    filepath = Path.Combine(
+                        HttpContext.Server.MapPath("~/Assets/img/"),
+                        Path.GetFileName(file.FileName)
+                    );
+                    file.SaveAs(filepath);
+                    fileNameList.Add(filepath);
+                }
+            }
+
             if (ModelState.IsValid)
             {
+                articles.ImgPath = fileNameList[0];
+                articles.ImgMiniPath = fileNameList[1];
+                articles.Date = DateTime.Now;
                 db.Articles.Add(articles);
                 db.SaveChanges();
                 return RedirectToAction("Index");
