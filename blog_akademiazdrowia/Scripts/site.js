@@ -23,6 +23,6 @@
     });
 
     $(".icon-search").on('click', function () {
-        $('.search-textBox').fadeToggle();
+        $('.search-box').fadeToggle();
     });
 });

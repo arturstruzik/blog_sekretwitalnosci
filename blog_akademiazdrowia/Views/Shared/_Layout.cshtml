@@ -31,18 +31,24 @@
                     <li id="nav-c"><a class="navbar-static-top-link" href="/Home/About">NEWSLETTER</a></li>
                 </ul>
                 <fb:like id="fb" href="https://www.facebook.com/MensHealthPolska/?fref=ts" show_faces="false" width="50" layout="button_count"></fb:like>
-                
+
             </div>
         </div>
     </div>
 
     <div class="container container-body">
-        
+
         <div class="navbar-fixed-top">
             <button type="button" class="navbar-button icon-search">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             </button>
-            @Html.TextBox("search", "szukana fraza", new { @class = "search-textBox" })
+            <form action="~/Home/Index" method="post">
+                <input type="text" name="query" placeholder="szukana fraza" required="required" class="search-query search-box" />
+                <button type="submit" class="btn btn-default search-box">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+            </form>
+            
             <img src="~/Assets/img/logo_horizontal_small.png" alt="Sekret Witalności logo" />
             <ul>
                 <li>@Html.ActionLink("TCM", "Index", "Home")</li>
@@ -62,11 +68,9 @@
             @RenderBody()
         </div>
         <hr />
-        <footer>
-            
-        </footer>
+        <footer></footer>
     </div>
-    
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

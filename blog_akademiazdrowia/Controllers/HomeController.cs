@@ -10,8 +10,20 @@ namespace blog_akademiazdrowia.Controllers
     {
         sekretwitalnosciContext db = new sekretwitalnosciContext();
 
+        [HttpGet]
         public ActionResult Index()
         {
+            return View(db.Articles.ToList<Articles>());
+        }
+
+        [HttpPost]
+        public ActionResult Index(string value)
+        {
+            var a = Request.Params.GetValues("query").First().
+                Split( new char[]{' ',',','.'}, 30).
+                Where(s => !string.IsNullOrWhiteSpace(s)).
+                Distinct().ToList();
+            
             return View(db.Articles.ToList<Articles>());
         }
 

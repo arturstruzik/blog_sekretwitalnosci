@@ -21,7 +21,7 @@ body {
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+
 select,
 textarea {
     max-width: 280px;
@@ -72,6 +72,13 @@ textarea {
     height: 60px !important;
     background-color: #0077c8;
     line-height: 60px;
+}
+
+.navbar-fixed-top form {
+    position:absolute;
+    top: 0;
+    left: 0;
+    z-index: 1100;
 }
 
 @media (min-width: 768px) {
@@ -170,19 +177,8 @@ textarea {
     color: white;
 }
 
-.search-textBox{
+.search-box{
     display:none;
-    position:absolute;
-    top:0;
-    left:60px;
-    padding-left: 15px;
-    height:60px;
-    max-width: 300px;
-    min-width: 250px;
-    font-size: 16px;
-    font-family: Calibri;
-    font-weight:600;
-    color: rgba(36, 36, 36, 0.35);
 }
 
 #fb {
@@ -291,6 +287,25 @@ input#Title, input#Tags{
     max-width:100% !important;
 }
 
+.navbar-fixed-top form input[type="text"]{
+    line-height: 29px;
+    padding: 0 0 0 0 !important;
+    margin: 0 0 0 0 !important;
+    position:absolute;
+    top: 15px;
+    left: 99px;
+    width: 420px;
+}
+
+.navbar-fixed-top .btn {
+    position: absolute;
+    top: 15px;
+    left: 64px;
+    border: 1px solid rgb(169, 169, 169) !important;
+    border-right: none !important;
+    color: initial;
+}
+
 .crop {
     height:370px;
     overflow:hidden;
@@ -304,6 +319,9 @@ input#Title, input#Tags{
 @media(max-width:768px) {
     .crop{
         height:500px;
+    }
+    .navbar-fixed-top form input[type="text"] {
+        width: 240px;
     }
 }
 
