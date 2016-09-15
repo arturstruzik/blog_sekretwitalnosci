@@ -70,11 +70,6 @@ a:hover {
   outline: 0;
 }
 
-h1 {
-  margin: 0.67em 0;
-  font-size: 2em;
-}
-
 abbr[title] {
   border-bottom: 1px dotted;
 }
@@ -265,7 +260,6 @@ table {
     margin: 2cm .5cm;
   }
   p,
-  h2,
   h3 {
     orphans: 3;
     widows: 3;
@@ -461,14 +455,10 @@ cite {
   text-align: center;
 }
 
-h1,
-h2,
 h3,
 h4,
 h5,
 h6,
-.h1,
-.h2,
 .h3,
 .h4,
 .h5,
@@ -495,8 +485,6 @@ h6 small,
   color: #999999;
 }
 
-h1,
-h2,
 h3 {
   margin-top: 20px;
   margin-bottom: 10px;
@@ -507,16 +495,6 @@ h5,
 h6 {
   margin-top: 10px;
   margin-bottom: 10px;
-}
-
-h1,
-.h1 {
-  font-size: 36px;
-}
-
-h2,
-.h2 {
-  font-size: 30px;
 }
 
 h3,
@@ -858,8 +836,8 @@ pre code {
 .col-lg-12 {
   position: relative;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 .col-xs-1,
@@ -4928,7 +4906,7 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
-  padding: 30px;
+  padding: 0;
   margin-bottom: 30px;
   font-size: 21px;
   font-weight: 200;
@@ -4943,21 +4921,20 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron p {
-  line-height: 1.4;
 }
 
 .container .jumbotron {
-  border-radius: 0px;
+  border-radius: 0;
 }
 
 @media screen and (min-width: 768px) {
   .jumbotron {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 0;
+    padding-bottom: 0;
   }
   .container .jumbotron{
-    padding-right: 60px;
-    padding-left: 60px;
+    padding-right: 0;
+    padding-left: 0;
   }
   .jumbotron h1 {
     font-size: 63px;

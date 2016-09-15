@@ -24,6 +24,7 @@ namespace blog_akademiazdrowia.Assets.Sorces
             int imgWidth;
             int imgHeight;
             double proportion;
+            string path_s = string.Empty;
 
             using (Image img = Image.FromFile(path))
             {
@@ -46,19 +47,20 @@ namespace blog_akademiazdrowia.Assets.Sorces
 
                 Image targetImg = ImageHelper.resizeImage(img, new Size(400, (int)((400 / (float)imgWidth) * imgHeight)));
                 img.Dispose();
-                targetImg.Save(path);
+                path_s = path.Remove(path.Length - 4) + "_s.jpg";
+                targetImg.Save(path_s);
                 imgWidth = targetImg.Width;
                 imgHeight = targetImg.Height;
                 targetImg.Dispose();
             }
 
-            using (Image img = Image.FromFile(path))
+            using (Image img = Image.FromFile(path_s))
             {
                 Point point = SetPointOfCut(imgWidth, imgHeight, proportion);
                 Size size = SetCropSize(imgWidth, imgHeight, proportion);
                 Image targetImg = ImageHelper.cropImage(img,new Rectangle(point,size));
                 img.Dispose();
-                targetImg.Save(path);
+                targetImg.Save(path_s);
             }
         }
 

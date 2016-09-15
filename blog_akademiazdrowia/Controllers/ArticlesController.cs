@@ -10,6 +10,7 @@ using blog_akademiazdrowia;
 using System.IO;
 using System.Drawing;
 using blog_akademiazdrowia.Assets.Sorces;
+using System.Text.RegularExpressions;
 
 namespace blog_akademiazdrowia.Controllers
 {
@@ -56,7 +57,7 @@ namespace blog_akademiazdrowia.Controllers
         public ActionResult Create([Bind(Include = "LayoutType,Category,Title,ShortContent,Content,ImgPath,ImgMiniPath,Tags")] Articles articles, IEnumerable<HttpPostedFileBase> files)
         {
             var filepath = String.Empty;
-            var fileNameList = new List<string>();
+            var filePathList = new List<string>();
 
             foreach (var file in files)
             {
@@ -67,16 +68,18 @@ namespace blog_akademiazdrowia.Controllers
                         Path.GetFileName(file.FileName)
                     );
                     file.SaveAs(filepath);
-                    fileNameList.Add(filepath);
+                    filePathList.Add(filepath);
                 }
             }
             
-            ImageHelper.PrepareImage(fileNameList[1], articles.LayoutType);
-
+            ImageHelper.PrepareImage(filePathList[1], articles.LayoutType);
+            
+            
+            
             if (ModelState.IsValid)
             {
-                articles.ImgPath = fileNameList[0];
-                articles.ImgMiniPath = fileNameList[1];
+                articles.ImgPath = "Assets/img/" + Regex.Match(filePathList[0], @"[a-z A-Z 0-9 _ -]*\.(jpg|JPG|png|PNG)$").Value;
+                articles.ImgMiniPath = "Assets/img/" + Regex.Match(filePathList[1], @"[a-z A-Z 0-9 _ -]*\.(jpg|JPG|png|PNG)$").Value;
                 articles.Date = DateTime.Now;
                 db.Articles.Add(articles);
                 db.SaveChanges();

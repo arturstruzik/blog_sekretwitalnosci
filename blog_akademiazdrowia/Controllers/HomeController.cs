@@ -8,9 +8,11 @@ namespace blog_akademiazdrowia.Controllers
 {
     public class HomeController : Controller
     {
+        sekretwitalnosciContext db = new sekretwitalnosciContext();
+
         public ActionResult Index()
         {
-            return View();
+            return View(db.Articles.ToList<Articles>());
         }
 
         public ActionResult About()
